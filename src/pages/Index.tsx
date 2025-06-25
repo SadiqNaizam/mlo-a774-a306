@@ -1,14 +1,30 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import MainAppLayout from '@/components/layout/MainAppLayout';
+import ProfileHeader from '@/components/UserProfile/ProfileHeader';
+import StatsCardGrid from '@/components/UserProfile/StatsCardGrid';
+import FollowersList from '@/components/UserProfile/FollowersList';
 
-const Index = () => {
+/**
+ * User Profile Dashboard Page
+ * 
+ * This is the main page for the user profile dashboard view. It orchestrates the 
+ * overall layout and composes the primary feature components:
+ * - ProfileHeader: Displays the user's banner, avatar, and basic info.
+ * - StatsCardGrid: Shows key statistics like posts, followers, and following count.
+ * - FollowersList: A searchable and interactive list of the user's followers.
+ * 
+ * The page uses MainAppLayout to provide the consistent sidebar and top header navigation structure.
+ */
+const UserProfilePage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <MainAppLayout>
+      <div className="flex flex-col gap-6">
+        <ProfileHeader />
+        <StatsCardGrid />
+        <FollowersList />
       </div>
-    </div>
+    </MainAppLayout>
   );
 };
 
-export default Index;
+export default UserProfilePage;
