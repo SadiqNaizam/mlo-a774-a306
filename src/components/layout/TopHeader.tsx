@@ -1,3 +1,4 @@
+```tsx
 import React from 'react';
 import {
   Bell,
@@ -22,12 +23,17 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
 
-const TopHeader: React.FC = () => {
+interface TopHeaderProps {
+  onMenuClick?: () => void;
+}
+
+const TopHeader: React.FC<TopHeaderProps> = ({ onMenuClick }) => {
   return (
     <header className="flex h-16 items-center justify-between border-b border-border bg-card px-6">
       <div className="flex items-center gap-4">
-        <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon" className="lg:hidden" onClick={onMenuClick}>
           <Menu className="h-6 w-6 text-secondary-foreground" />
           <span className="sr-only">Toggle Menu</span>
         </Button>
@@ -98,3 +104,4 @@ const TopHeader: React.FC = () => {
 };
 
 export default TopHeader;
+```
